@@ -128,28 +128,3 @@ async function testFirebaseConnection() {
     }
 }
 testFirebaseConnection();
-
-// دالة لإرسال إشعار تجريبي للتأكد من عمل النظام
-async function sendTestNotification() {
-    const url = FIREBASE_WEB_CONFIG.databaseURL + "notifications.json";
-    const payload = {
-        name: "نظام الاختبار",
-        timestamp: Date.now(),
-        message: "هذا إشعار تجريبي للتأكد من عمل النظام بنجاح! 🔔"
-    };
-    
-    try {
-        const response = await fetch(url, {
-            method: 'POST',
-            body: JSON.stringify(payload)
-        });
-        if (response.ok) {
-            showToastNotification("تم إرسال الإشعار التجريبي بنجاح ✅", false);
-        } else {
-            throw new Error("فشل الإرسال");
-        }
-    } catch (e) {
-        console.error("Test Notification Error:", e);
-        showToastNotification("فشل إرسال الإشعار التجريبي ❌", true);
-    }
-}

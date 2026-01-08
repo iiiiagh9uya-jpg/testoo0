@@ -1053,9 +1053,9 @@ function shareData() {
 
 // دالة إرسال الإشارة لـ Firebase فور إتمام التقرير
 async function triggerInstantNotification(name, region) {
-    // التأكد من أن الاسم ليس تاريخاً أو فارغاً
     const researcherName = name || "باحث";
-    const url = "https://notificationsfirebase-9a183-default-rtdb.firebaseio.com/lastNotification.json";
+    // نستخدم POST لإنشاء سجل جديد تماماً، مما يضمن تنبيه Firebase لجميع المشتركين
+    const url = "https://notificationsfirebase-9a183-default-rtdb.firebaseio.com/notifications.json";
     const payload = {
         name: researcherName,
         region: region || "",
@@ -1065,7 +1065,7 @@ async function triggerInstantNotification(name, region) {
     
     try {
         await fetch(url, {
-            method: 'PATCH',
+            method: 'POST',
             body: JSON.stringify(payload)
         });
         console.log("✅ تم إرسال إشارة الإشعار اللحظي");

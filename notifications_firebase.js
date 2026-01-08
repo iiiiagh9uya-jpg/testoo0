@@ -75,27 +75,28 @@ function showToastNotification(message, isGlobal = false) {
 }
 
 function initRealtimeNotifications() {
-    const url = FIREBASE_WEB_CONFIG.databaseURL + "lastNotification.json";
+    // نراقب مسار الإشعارات بالكامل
+    const url = FIREBASE_WEB_CONFIG.databaseURL + "notifications.json?orderBy=\"timestamp\"&limitToLast=1";
     
-    // عند أول دخول، نقوم بتخزين الوقت الحالي لمنع ظهور الإشعارات القديمة
-    let lastTimestamp = localStorage.getItem('lastNotificationTimestamp');
-    if (!lastTimestamp) {
-        lastTimestamp = Date.now();
-        localStorage.setItem('lastNotificationTimestamp', lastTimestamp);
-    }
+    let lastTimestamp = Date.now(); // نركز فقط على ما يحدث بعد فتح الصفحة
 
     async function checkForUpdates() {
         try {
             const response = await fetch(url);
             const data = await response.json();
             
-            if (data && data.timestamp > lastTimestamp) {
-                showToastNotification(data.message, true);
-                lastTimestamp = data.timestamp;
-                localStorage.setItem('lastNotificationTimestamp', lastTimestamp);
+            if (data) {
+                // Firebase يعيد كائن عند استخدام orderBy، نحتاج لجلب آخر عنصر
+                const keys = Object.keys(data);
+                const lastItem = data[keys[0]];
                 
-                if (typeof loadDashboardData === 'function') {
-                    loadDashboardData();
+                if (lastItem && lastItem.timestamp > lastTimestamp) {
+                    showToastNotification(lastItem.message, true);
+                    lastTimestamp = lastItem.timestamp;
+                    
+                    if (typeof loadDashboardData === 'function') {
+                        loadDashboardData();
+                    }
                 }
             }
         } catch (error) {

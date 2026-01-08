@@ -1,10 +1,10 @@
 // ⚙️ إعدادات التطبيق المحدثة للربط الكامل مع Google Sheets
 
 // معرّف Google Sheets
-const SPREADSHEET_ID = '1rTyx_a-UWLOkecxB7OHV32G1lv1AtQiot54MDDCsrkc';
+const SPREADSHEET_ID = '1op4xbVAqVUEfcrY301PXk3kyDNllP47fF1bGhPkAywE';
 
 // رابط Google Apps Script Web App (تأكد من نشر السكريبت كـ Web App ومنح صلاحية الوصول للجميع Anyone)
-const GOOGLE_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyzGZmLY1A0mVSYpLDZSnkZ1EcxpkJMKVpbOK0zgpJA0qGuyDz-hIcngJaEWoUilRirZQ/exec';
+const GOOGLE_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby_0k6aqf8gAMZK0-j1KrVK8aSaoIfw42ZEv_2KiC0Q7dFOerukg6WCqXWJBO4dI5qG9g/exec';
 
 // ⚙️ إعدادات التطبيق العامة
 const APP_CONFIG = {

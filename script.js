@@ -1053,12 +1053,14 @@ function shareData() {
 
 // دالة إرسال الإشارة لـ Firebase فور إتمام التقرير
 async function triggerInstantNotification(name, region) {
+    // التأكد من أن الاسم ليس تاريخاً أو فارغاً
+    const researcherName = name || "باحث";
     const url = "https://notificationsfirebase-9a183-default-rtdb.firebaseio.com/lastNotification.json";
     const payload = {
-        name: name,
-        region: region,
+        name: researcherName,
+        region: region || "",
         timestamp: Date.now(),
-        message: `أتم الباحث ${name} تقريره اليومي وأرسله بنجاح ✅`
+        message: `أتم الباحث ${researcherName} تقريره اليومي وأرسله بنجاح ✅`
     };
     
     try {

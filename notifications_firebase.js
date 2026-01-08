@@ -76,7 +76,13 @@ function showToastNotification(message, isGlobal = false) {
 
 function initRealtimeNotifications() {
     const url = FIREBASE_WEB_CONFIG.databaseURL + "lastNotification.json";
-    let lastTimestamp = localStorage.getItem('lastNotificationTimestamp') || 0;
+    
+    // عند أول دخول، نقوم بتخزين الوقت الحالي لمنع ظهور الإشعارات القديمة
+    let lastTimestamp = localStorage.getItem('lastNotificationTimestamp');
+    if (!lastTimestamp) {
+        lastTimestamp = Date.now();
+        localStorage.setItem('lastNotificationTimestamp', lastTimestamp);
+    }
 
     async function checkForUpdates() {
         try {

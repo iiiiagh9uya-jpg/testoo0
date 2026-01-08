@@ -506,6 +506,9 @@
                 // إرسال إشعار لحظي لـ Firebase
                 if (typeof triggerInstantNotification === 'function') {
                     triggerInstantNotification(formDataToSubmit.researcherName, formDataToSubmit.region || '');
+                } else if (typeof sendInstantNotification === 'function') {
+                    // محاولة استدعاء الدالة بمسمى آخر إذا وجد
+                    sendInstantNotification(formDataToSubmit.researcherName);
                 }
 
                 if (typeof showToastNotification === 'function') {

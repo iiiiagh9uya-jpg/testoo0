@@ -128,3 +128,25 @@ async function testFirebaseConnection() {
     }
 }
 testFirebaseConnection();
+
+// دالة إرسال الإشارة لـ Firebase (متاحة لجميع الصفحات)
+async function triggerInstantNotification(name, region) {
+    const researcherName = name || "باحث";
+    const url = FIREBASE_WEB_CONFIG.databaseURL + "notifications.json";
+    const payload = {
+        name: researcherName,
+        region: region || "",
+        timestamp: Date.now(),
+        message: `أتم الباحث ${researcherName} تقريره اليومي وأرسله بنجاح ✅`
+    };
+    
+    try {
+        await fetch(url, {
+            method: 'POST',
+            body: JSON.stringify(payload)
+        });
+        console.log("✅ تم إرسال إشارة الإشعار اللحظي باسم: " + researcherName);
+    } catch (e) {
+        console.error("❌ فشل إرسال إشارة الإشعار:", e);
+    }
+}

@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الدليل الإرشادي للباحثين</title>
+    <meta property="og:title" content="الدليل الإرشادي للباحثين" />
+    <meta property="og:description" content="موقع يهدف إلى توجيه الباحثين في مختلف المناطق، ويوفر لهم الأدوات والمصادر اللازمة لإنجازاعمالهم اليوميه بكفاءة وجودة عالية." />
+    <meta property="og:image" content="https://zzxx1923.github.io/research-guide-website/preview.jpg" />
+    <meta property="og:url" content="https://zzxx1923.github.io/research-guide-website/" />
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <!-- خطوط وأيقونات الموقع القديم -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+  
+    <link rel="stylesheet" href="prism-flux.css">
+    
+
+    <style>
+        
+        :root {
+            --primary-black: #0a0a0a;
+            --carbon-dark: #121212;
+            --carbon-medium: #1a1a1a;
+            --carbon-light: #2a2a2a;
+            --metal-dark: #3a3a3a;
+            --metal-light: #4a4a4a;
+            --accent-red: #ff3333;
+            --accent-blue: #00a8ff;
+            --accent-green: #00ff88;
+            --accent-purple: #9945ff;
+            --accent-cyan: #00ffff;
+            --text-primary: #ffffff;
+            --text-secondary: #b0b0b0;
+            --text-dim: #808080;
+        }
+
+        body {
+            font-family: 'Tajawal', sans-serif; 
+            direction: rtl; 
+            text-align: right;
+            background: var(--primary-black);
+            color: var(--text-primary);
+        }
+
+        
+        .header {
+            display: none !important;
+        }
+
+       
+        .main-header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(18, 18, 18, 0.98); /* خلفية داكنة شفافة */
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            padding: 15px 0;
+        }
+
+        .main-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .main-header .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .main-header .logo-img {
+            height: 50px; 
+            width: auto;
+            margin-left: 15px;
+            opacity: 0.95;
+        }
+
+        .main-header .site-title {
+            font-size: 1.5em;
+            font-weight: 700;
+            color: var(--accent-cyan);
+            display: block;
+        }
+
+        .menu-btn {
+            background: none;
+            border: none;
+            color: var(--accent-purple);
+            font-size: 24px;
+            cursor: pointer;
+            padding: 10px;
+            transition: color 0.3s ease;
+        }
+
+        .menu-btn:hover {
+            color: var(--accent-cyan);
+        }
+
+        .sidebar {
+            position: fixed;
+            top: 0;
+            right: -300px; 
+            width: 300px;
+            height: 100%;
+            background: var(--carbon-medium);
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
+            z-index: 1001;
+            transition: right 0.3s ease;
+            padding: 20px;
+            padding-top: 80px;
+        }
+
+        .sidebar.open {
+            right: 0;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: none;
+            border: none;
+            color: var(--accent-red);
+            font-size: 30px;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .close-btn:hover {
+            color: var(--text-primary);
+        }
+
+        .sidebar-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .sidebar-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            padding: 12px 15px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-size: 1.1em;
+            border-right: 3px solid transparent;
+        }
+
+        .sidebar-link:hover {
+            background: var(--carbon-dark);
+            color: var(--accent-cyan);
+            border-right-color: var(--accent-cyan);
+        }
+
+        
+        .hero-section {
+            padding-top: 120px;
+            min-height: 100vh;
+            background: none; 
+            color: var(--text-primary);
+            text-align: center;
+        }
+
+        .hero-content h1 {
+            font-size: 2.5em;
+            color: var(--accent-purple);
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(153, 69, 255, 0.5);
+        }
+
+        .hero-content p {
+            font-size: 1.1em;
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+        }
+
+       
+        .button-wrapper {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--carbon-medium);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 1px solid var(--metal-dark);
+        }
+
+        .date-info {
+            background: var(--carbon-dark);
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 15px;
+            border: 1px solid var(--metal-dark);
+        }
+
+        .day-name, .date-display {
+            color: var(--accent-cyan);
+            font-weight: 700;
+            font-size: 1.2em;
+        }
+
+        .date-controls {
+            width: 100%;
+            margin-bottom: 15px;
+        }
+
+        .date-control-btn {
+            background: var(--metal-dark);
+            color: var(--text-primary);
+            border: 1px solid var(--metal-light);
+            border-radius: 8px;
+            padding: 10px 15px;
+            transition: all 0.3s ease;
+        }
+
+        .date-control-btn:hover {
+            background: var(--accent-blue);
+            box-shadow: 0 0 15px rgba(0, 168, 255, 0.5);
+            transform: translateY(-2px);
+        }
+
+        .buttons-container {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: none;
+        }
+
+        .message-btn {
+            background: linear-gradient(135deg, var(--accent-purple) 0%, var(--accent-blue) 100%);
+            color: var(--text-primary);
+            font-weight: 700;
+            padding: 15px 20px;
+            border-right: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .message-btn:hover {
+            background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-purple) 100%);
+            box-shadow: 0 0 20px rgba(153, 69, 255, 0.5);
+            transform: translateY(-2px);
+        }
+
+       
+        .feeds-section {
+            background: none;
+            padding: 60px 0;
+        }
+
+        .feeds-header h2 {
+            font-size: 2em;
+            color: var(--accent-red);
+            text-shadow: 0 0 10px rgba(255, 51, 51, 0.5);
+            border-bottom: 2px solid var(--accent-red);
+            padding-bottom: 10px;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        .feeds-messages {
+            max-width: 800px;
+            margin: 0 auto;
+            gap: 10px;
+        }
+
+        .feeds-messages li {
+            background-color: var(--carbon-medium);
+            border-left: 4px solid var(--accent-red);
+            color: var(--text-secondary);
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .feeds-messages li:hover {
+            background-color: var(--carbon-dark);
+            transform: translateX(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+            border-left-color: var(--accent-red);
+            color: var(--text-primary);
+        }
+
+        
+        .links-section {
+            background: var(--carbon-dark);
+            padding: 60px 0;
+            border-top: 1px solid var(--metal-dark);
+        }
+
+        .links-section h2 {
+            color: var(--accent-green);
+            font-size: 2em;
+            text-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+            border-bottom: 2px solid var(--accent-green);
+            padding-bottom: 10px;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .link-item {
+            background: var(--carbon-medium);
+            color: var(--text-primary);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+            border: 1px solid var(--metal-dark);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .link-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--accent-green), var(--accent-cyan));
+            transition: width 0.3s ease;
+        }
+
+        .link-item:hover {
+            background: var(--carbon-light);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            color: var(--accent-cyan);
+        }
+
+        .link-item:hover::before {
+            width: 100%;
+            opacity: 0.1;
+        }
+
+       
+        .video-section {
+            background: var(--primary-black);
+            padding: 60px 0;
+        }
+
+        .video-container h2 {
+            color: var(--accent-blue);
+            font-size: 2em;
+            text-shadow: 0 0 10px rgba(0, 168, 255, 0.5);
+            border-bottom: 2px solid var(--accent-blue);
+            padding-bottom: 10px;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        .video-wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--carbon-medium);
+            border-radius: 15px;
+            padding: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 1px solid var(--metal-dark);
+        }
+
+        .video-wrapper video {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        
+        .modal-content {
+            background: var(--carbon-medium);
+            border: 1px solid var(--metal-dark);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+        }
+
+        .modal-content h2 {
+            color: var(--accent-purple);
+        }
+
+        .modal-content input {
+            background: var(--carbon-dark);
+            border: 1px solid var(--metal-dark);
+            color: var(--text-primary);
+        }
+
+        .modal-content input:focus {
+            border-color: var(--accent-purple);
+            box-shadow: 0 0 10px rgba(153, 69, 255, 0.5);
+        }
+
+        .btn-submit {
+            background: linear-gradient(135deg, var(--accent-purple) 0%, var(--accent-cyan) 100%);
+            color: var(--text-primary);
+        }
+
+        .btn-submit:hover {
+            background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-purple) 100%);
+        }
+
+        .btn-cancel {
+            background: var(--metal-dark);
+            color: var(--text-secondary);
+        }
+
+        .btn-cancel:hover {
+            background: var(--metal-light);
+            color: var(--text-primary);
+        }
+
+        
+        .copy-feedback {
+            background: linear-gradient(135deg, var(--accent-green) 0%, var(--accent-cyan) 100%);
+            color: var(--primary-black);
+            font-weight: 700;
+            box-shadow: 0 4px 12px rgba(0, 255, 136, 0.5);
+        }
+
+      
+        @media (max-width: 768px) {
+            .main-header .site-title {
+                font-size: 1.2em;
+            }
+            .main-header .logo-img {
+                height: 40px;
+            }
+            .sidebar {
+                width: 250px;
+            }
+            .hero-content h1 {
+                font-size: 2em;
+            }
+            .feeds-header h2, .links-section h2, .video-container h2 {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="loader" id="loader">
+        <div class="loader-content">
+            <div class="loader-prism">
+                <div class="prism-face"></div>
+                <div class="prism-face"></div>
+                <div class="prism-face"></div>
+            </div>
+            <div style="color: var(--accent-purple); font-size: 18px; text-transform: uppercase; letter-spacing: 3px;">جاري تحميل الدليل...</div>
+        </div>
+    </div>
+
+   
+    <header class="main-header">
+		<div class="container">
+		    <button class="menu-btn" onclick="toggleSidebar()">
+		        <i class="fas fa-bars"></i>
+		    </button>
+            <div class="logo">
+                <img src="images/hrsd_logo.png" alt="شعار وزارة الموارد البشرية" class="logo-img">
+                <span class="site-title">الدليل الإرشادي للباحثين</span>
+            </div>
+		</div>
+    </header>
+	
+    
+   <div id="sidebar" class="sidebar">
+        <button class="close-btn" onclick="toggleSidebar()">&times;</button>
+        <nav class="sidebar-nav">
+            <a href="index.html" class="sidebar-link active">
+                <i class="fas fa-home"></i>
+                الرئيسية
+            </a>
+            <a href="videos.html" class="sidebar-link">
+                <i class="fas fa-video"></i>
+                شروحات وفيديوهات
+            </a>
+            <a href="File.html" class="sidebar-link">
+                <i class="fas fa-file-pdf"></i>
+                اهم ملفات PDF
+            </a>
+            <a href="templates.html" class="sidebar-link" style="color: var(--accent-blue); font-weight: bold;">
+                <i class="fas fa-file-alt"></i>
+                قوالب الطلبات
+            </a>
+            <a href="daily-reports.html" class="sidebar-link" style="color: var(--accent-green); font-weight: bold;  border-right: 3px solid var(--accent-green); cursor: pointer;">
+                <i class="fas fa-chart-bar"></i>
+                التقارير اليومية
+            </a>
+            <a href="settings.html" class="sidebar-link" style="color: var(--accent-red); font-weight: bold;">
+                <i class="fas fa-cog"></i>
+                الإعدادات
+            </a>
+        </nav>
+    </div>
+
+   
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <h1>مرحباً بك في الدليل الإرشادي للباحثين</h1>
+                <p>دليلك الشامل لتسهيل مهامك اليومية.</p>
+            </div>
+        </div>
+        
+        <div class="container">
+            <p style="color: var(--text-secondary);"> نماذج رسائل الزيارات الميدانية (يتم تحديث التاريخ واليوم تلقائيًا مع إمكانية التعديل اليدوي)</p>
+            <div class="button-wrapper">
+                <div class="researcher-info" style="margin-bottom: 15px; display: flex; gap: 10px;">
+                    <input type="text" id="researcherNameInput" placeholder="أدخل اسم الباحث/ة هنا" style="flex: 2; padding: 12px; border-radius: 8px; border: 1px solid var(--metal-dark); background: var(--carbon-dark); color: var(--text-primary); text-align: center; font-size: 1.1em; font-family: 'Tajawal', sans-serif;">
+                    <select id="researcherGender" style="flex: 1; padding: 12px; border-radius: 8px; border: 1px solid var(--metal-dark); background: var(--carbon-dark); color: var(--text-primary); text-align: center; font-size: 1.1em; font-family: 'Tajawal', sans-serif; cursor: pointer;">
+                        <option value="male">باحث</option>
+                        <option value="female">باحثة</option>
+                    </select>
+                </div>
+                <div class="date-info">
+                    <span class="day-name" id="dayName">الأحد</span>
+                    <span class="date-display" id="dateDisplay">23/10/2025</span>
+                </div>
+                <div class="date-controls">
+                    <button class="date-control-btn prev-day"  onclick="previousDay()">
+                        <i class="fas fa-chevron-right" ></i> اليوم السابق
+                    </button>
+                    <button class="date-control-btn next-day" onclick="nextDay()">
+                        اليوم التالي <i class="fas fa-chevron-left"></i>
+                    </button>
+                </div>
+                <div class="buttons-container">
+                    <button class="message-btn" id="messageBtn1" onclick="copyMessage('message1')">
+                        رسالة الضمان
+                    </button>
+                    <button class="message-btn" id="messageBtn2" onclick="copyMessage('message2')">
+                        حساب المواطن
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- الرسائل المخفية -->
+        <div id="message1" style="display: none;">السلام عليكم ورحمة الله وبركاته ...
+
+عزيزي/تي المستفيد/ة :
+
+معك (الباحث /ــه الإجتماعية) : ……..••
+
+وزارة الموارد البشرية والتنمية الإجتماعيه...
+
+(الضمان الاجتماعي)
+
+لديكم موعد زياره يوم (الأحد)
+
+بتاريخ : 23/10/2025
+
+* آمل منكم ارسال موقع المنزل وصوره للمنزل من الخارج فقط...
+
+🔹ملاحظه مهمه جدا :
+
+وتجنباً للتأخير على المستفيدين الآخرين يجب تجهيز الطلبات التاليه وتكون بحوزة المستفيد اثناء الزياره :
+
+✓ الهويه الوطنيه او كرت العائله.
+✓ رخصة السير (الاستماره) للمستفيد او احد التابعين في حال امتلاك سيارة.
+✓ عقد الايجار / او صك الملك في حال كان البيت ملك/صك الورثه.
+✓ العنوان الوطني موثق من سبل او توكلنا مهم جداً.
+✓ صك الطلاق/ صك الحضانة.
+✓ التقرير الطبي اذا كان هناك مرض اواعاقة لاسمح الله.
+✓ وجود جميع التابعين فالمنزل لمن لديه تابع ماعادا الطلاب.
+
+لايوجد وقت محدد لموعد الزيارة وسوف يتم الابلاغ قبل القدوم بنصف ساعه .
+
+شكراً لكم ....</div>
+
+        <div id="message2" style="display: none;">السلام عليكم ورحمة الله وبركاته .
+
+عزيزي المستفيد /  
+
+معك ( الباحثـ.   / ــه  الإجتماعي) : …….. -
+        
+وزارة الموارد البشرية والتنمية الإجتماعيه.
+(حساب المواطن)
+
+لديكم موعد زياره يوم (الأحد)
+
+بتاريخ : 23/10/2025
+
+      
+آمل منكم ارسال موقع المنزل وصوره للمنزل من الخارج  فقط..
+
+🔸🔸🔸ملاحظه مهمه جدا وتجنبا للتأخير  على المستفيدين الآخرين يجب تجهيز الطلبات التاليه وتكون بحوزة المستفيد اثناء الزياره .
+
+1- الهويه الوطنيه .
+2- عقد الايجار.
+3- العنوان الوطني.
+4- فاتورة الكهرباء .</div>
+
+        <div class="copy-feedback" id="copyFeedback">✓ تم نسخ الرسالة بنجاح!</div>
+
+    </section>
+
+    <!-- قسم قائمة التغذيات (Feeds) -->
+    <section id="feeds" class="feeds-section section-padding">
+        <div class="container">
+            <div class="feeds-wrapper">
+                <div class="feeds-header">
+                    <h2>التعذرات الممنوع استخدامها من قبل الباحث! </h2>
+                </div>
+                
+                <!-- إعدادات الاتصال بجوجل شيت - مخفية -->
+                <div class="google-sheets-config" id="sheetsConfig" style="display: none; margin-bottom: 30px; text-align: center;">
+                    <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 15px;">
+                        <input type="text" id="sheetId" placeholder="معرف جوجل شيت" value="1mw5z6UWdk3GZHiprpr6-oFSVTAje3bE8KADSf3SMnaM" style="padding: 8px 12px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.3); background: rgba(255,255,255,0.1); color: white; min-width: 300px;">
+                        <input type="text" id="sheetName" placeholder="اسم الورقة" value="الورقة1" style="padding: 8px 12px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.3); background: rgba(255,255,255,0.1); color: white; min-width: 150px;">
+                    </div>
+                    <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+                        <button onclick="loadExcusesFromSheet()" style="padding: 10px 20px; background: rgba(255,255,255,0.2); color: white; border: 1px solid rgba(255,255,255,0.5); border-radius: 6px; cursor: pointer; font-weight: 600; transition: all 0.3s ease;" onmouseover="this.style.background='rgba(255,255,255,0.3)'" onmouseout="this.style.background='rgba(255,255,255,0.2)'">تحميل من جوجل شيت</button>
+                        <button onclick="toggleAutoRefresh()" id="autoRefreshBtn" style="padding: 10px 20px; background: rgba(255,255,255,0.2); color: white; border: 1px solid rgba(255,255,255,0.5); border-radius: 6px; cursor: pointer; font-weight: 600; transition: all 0.3s ease;" onmouseover="this.style.background='rgba(255,255,255,0.3)'" onmouseout="this.style.background='rgba(255,255,255,0.2)'">تفعيل التحديث التلقائي</button>
+                    </div>
+                </div>
+                
+                <ul id="feeds-list" class="feeds-messages">
+                    <li>
+                        <span class="excuse-text">تعذر خطأ تقني</span>
+                    </li>
+                    <li>
+                        <span class="excuse-text">تعذر مستقل مخالف لشروط الاستقلالية</span>
+                    </li>
+                    <li>
+                        <span class="excuse-text">تعذر صلة قرابة</span>
+                    </li>
+                    <li>
+                        <span class="excuse-text">تعذر الزيارة من قبل الباحث</span>
+                    </li>
+                    <li>
+                        <span class="excuse-text">تعذر البيانات المقدمة من المستفيد غير صحيحة</span>
+                    </li>
+                    <li>
+                        <span class="excuse-text">يمنع زيارة المستفيدين من الجنس الآخر (المستقلين) دون وجود المحرم الشرعي.</span>
+                    </li>
+                    <li>
+                        <span class="excuse-text">يحظر إتمام الزيارة عن بعد دون توجيه رسمي وخطي من إدارة المشروع.</span>
+                    </li>
+                    <li>
+                        <span class="excuse-text">يمنع توقيع الباحث بدلًا عن المستفيد أو في غير الحقل المخصص لتوقيعه</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- قسم الفيديو المنفصل -->
+    <section class="video-section section-padding">
+        <div class="container">
+            <div class="video-container">
+                <h2>شرح طريقة تنفيذ الزيارة </h2>
+                <div class="video-wrapper">
+                    <video controls>
+                        <source src="videos/الدليل الارشادي.mp4" type="video/mp4">
+                        متصفحك لا يدعم تشغيل الفيديو.
+                    </video>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم الروابط (Links) -->
+    <section id="links" class="links-section section-padding">
+        <div class="container">
+            <h2>روابط مهمة</h2>
+            <div class="links-grid">
+              <a href="https://hrsd-scs.sa/admin/account/login" id="o" class="link-item">منصة وصول (الضمان الاجتماعي)</a>
+                <a href="https://citizens.bpo-hq.com/admin/account/login" id="p" class="link-item">منصة وصول (حساب المواطن)</a>
+                <a href="https://elmiyaar.bpo-hq.com/published/public/3a16c23c-bfe6-9c1f-1454-d1b077b34aad" id="l" class="link-item">مبادرة تفريج كربة</a>
+                <a href="https://elmiyaar.bpo-hq.com/published/public/3a161317-0e40-85f2-072b-229e4cbf08ab"id="z" class="link-item">معيار (المشكلات التقنية)</a>
+                <a href="https://chatgpt.com/g/g-67fa231bdeb88191a5c6e7909176dce2-lms-d-lftrdy-llbhth-ljtm-y"  id="GPT" class="link-item"> </a>
+                <a href="https://emdad.kayanhr.com/" class="link-item" id="sanad-link"></a>
+                <a href="https://app.ziwo.io/login" class="link-item"id="ziwo">زيو</a>
+                <a href="https://hrsd-scs.sa/bahasv4.apk" class="link-item" id="apk">تنزيل تطبيق المساعد للباحث</a>
+                <a href="https://play.google.com/store/apps/details?id=com.ziwoagent" id="apk1" class="link-item">اندرويد </a>
+                <a href="https://apps.apple.com/app/id6648779830" id="apk2" class="link-item">ايفون </a>
+                <a href="https://snapchat.com/t/MRIvntDt" id="snap" class="link-item">سناب المشروع</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- النوافذ المنبثقة (Modal) -->
+    <div id="password-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close" onclick="closePasswordDialog()">&times;</span>
+            <h2>إدخال كلمة السر</h2>
+            <input type="password" id="password-input" placeholder="أدخل كلمة السر" onkeypress="handlePasswordKeyPress(event)">
+            <div class="modal-buttons">
+                <button onclick="closePasswordDialog()" class="btn-cancel">إلغاء</button>
+                <button onclick="checkPassword()" class="btn-submit">فتح</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="add-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close" onclick="closeAddDialog()">&times;</span>
+            <h2>إضافة تعذر جديد</h2>
+            <input type="text" id="new-excuse-input" placeholder="أدخل نص التعذر" onkeypress="handleAddKeyPress(event)">
+            <div class="modal-buttons">
+                <button onclick="closeAddDialog()" class="btn-cancel">إلغاء</button>
+                <button onclick="addExcuse()" class="btn-submit">إضافة</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="edit-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close" onclick="closeEditDialog()">&times;</span>
+            <h2>تعديل التعذر</h2>
+            <input type="text" id="edit-excuse-input" placeholder="عدل نص التعذر" onkeypress="handleEditKeyPress(event)">
+            <div class="modal-buttons">
+                <button onclick="closeEditDialog()" class="btn-cancel">إلغاء</button>
+                <button onclick="saveEditExcuse()" class="btn-submit">حفظ</button>
+            </div>
+        </div>
+    </div>
+   <!-- Hero Section with 3D Carousel -->
+   
+
+    <script src="script.js"></script>
+    <!-- ملفات JavaScript -->
+    <script src="script.js"></script>
+    <script src="notifications_firebase.js"></script>
+</body>
+  <script src="prism-scripts.js"></script>    
+    <script>
+        // دالة لفتح وإغلاق القائمة الجانبية
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('open');
+        }
+
+        // إخفاء شاشة التحميل بعد تحميل الصفحة
+        window.addEventListener('load', () => {
+            const loader = document.getElementById('loader');
+            if (loader) {
+                loader.classList.add('hidden');
+            }
+        });
+    </script>
+<section class="contact-section" id="contact">
+	        <div class="section-header">
+	            <h2 class="section-title">فريق الدعم </h2>
+	            <p class="section-subtitle">تواصل مع فريق الدعم الفني لدينا عبر الواتساب.</p>
+	        </div>
+	        
+	        <a href="https://wa.me/966543573677?text=مرحبًادلال،%20أرغب%20بالحصول%20على%20مساعدتك.%20شكرًا%20لتعاونك." class="info-item">
+	                    <div class="info-icon"><i class="fab fa-whatsapp"></i></div>
+	                    <div class="info-text">
+	                        <h4>........دلال........</h4>
+	                        
+	                    </div>
+	                
+	                <a href="https://wa.me/966507072589?text=مرحبًافرح،%20أرغب%20بالحصول%20على%20مساعدتك.%20شكرًا%20لتعاونك." class="info-item">
+	                    <div class="info-icon"><i class="fab fa-whatsapp"></i></div>
+	                    <div class="info-text">
+	                        <h4>........فرح........</h4>
+	                        
+	                    </div>
+	                
+	                
+	                </a>
+</body>
+<div class="visitor-counter-container">
+            <!-- عداد الزوار من freevisitorcounters.com -->
+            <div id="visitor-counter">
+                <a href="http://www.freevisitorcounters.com/">Freevisitorcounters</a> </script> <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/1436427/t/2">
+        // حماية منع الضغط بالزر الأيمن
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+            alert('ممنوع لغرض الأمان');
+            return false;
+        });
+
+        // منع اختيار النص
+        document.addEventListener('selectstart', function(e) {
+            e.preventDefault();
+            return false;
+        });
+
+        // منع F12 و Ctrl+Shift+I و Ctrl+Shift+C
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'F12' || 
+                (e.ctrlKey && e.shiftKey && e.key === 'I') ||
+                (e.ctrlKey && e.shiftKey && e.key === 'C')) {
+                e.preventDefault();
+                alert('ممنوع لغرض الأمان');
+                return false;
+            }
+        });
+
+    </script>
+            </div>
+        </div>
+</html>
